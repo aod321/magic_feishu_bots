@@ -5,7 +5,9 @@ services:
     build: .
     volumes:
       - ./logs:/app/logs
+    env_file:
+      - .env
     environment:
       - TZ=Asia/Shanghai
     restart: always
-    command: ["python", "latest_paper_bot.py", "--webhook-url", "你的webhook URL", "--debug"]
+    command: ["python", "latest_paper_bot.py", "--webhook-url", "${FEISHU_WEBHOOK_URL}"]
