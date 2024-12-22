@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  paper-bot:
+    build: .
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai
+    restart: always
+    command: ["python", "latest_paper_bot.py", "--webhook-url", "你的webhook URL", "--debug"]
